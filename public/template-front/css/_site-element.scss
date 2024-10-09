@@ -1,0 +1,41 @@
+/*Decorative element*/
+.dots {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  background-image: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.2) 8px,
+    transparent 3px
+  );
+  background-size: 50px 40px;
+  z-index: -20;
+  @media (max-width: 768px) {
+    max-width: 50%;
+  }
+}
+.dots1 {
+  left: -15px;
+  top: -70px;
+}
+.dots2 {
+  right: 360px;
+  bottom: 0;
+}
+.circle {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 45px solid rgba(255, 255, 255, 0.2);
+  z-index: -1;
+}
+.circle1 {
+  top: -120px;
+  right: -180px;
+}
+.circle2 {
+  left: -180px;
+  z-index: 0;
+}

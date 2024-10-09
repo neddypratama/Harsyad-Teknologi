@@ -1,0 +1,115 @@
+.footer {
+    background-color: $white2;
+    padding-top: 30px;
+    .container {
+      border-radius: 20px;
+      background-color: $primary;
+      color: white;
+      padding: 30px;
+      margin-bottom: -50px;
+      position: relative;
+      z-index: 999;
+      @media (max-width: 990px) {
+        max-width: 80%;
+      }
+      .row {
+        .footer-left {
+          h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+          }
+          p {
+            font-size: 14px;
+            line-height: 1.6;
+          }
+          img {
+            margin: 10px;
+            @media (max-width: 990px) {
+              width: 50%;
+            }
+          }
+        }
+        .footer-center {
+          h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            font-weight: bold;
+          }
+          ul {
+            list-style: none;
+            padding: 0;
+            li {
+              margin-bottom: 5px;
+              a {
+                color: $white;
+                text-decoration: none;
+                font-size: 14px;
+                &:hover {
+                  color: $secondary;
+                  font-weight: bold;
+                }
+                @media (max-width: 990px) {
+                  font-size: 12px;
+                }
+              }
+            }
+          }
+          @media (max-width: 540px) {
+            display: none;
+          }
+        }
+        .footer-right {
+          h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            font-weight: bold;
+          }
+          p {
+            font-size: 14px;
+            line-height: 1.6;
+            @media (max-width: 990px) {
+              font-size: 11px;
+            }
+          }
+          img {
+            width: 16px;
+            margin-right: 8px;
+            vertical-align: middle;
+            filter: invert(100%) brightness(1000%);
+            @media (max-width: 990px) {
+              width: 12px;
+            }
+          }
+        }
+      }
+    }
+    .footer-bottom {
+      background-color: $secondary; /* Warna biru tua */
+      text-align: center;
+      position: relative;
+      align-items: center;
+      padding-top: 50px;
+      padding-bottom: 20px;
+      border-radius: 50px 50px 0 0;
+      small {
+        color: $white;
+        letter-spacing: 1.5px;
+      }
+      .footer-nav {
+        margin: 10px 0;
+        a {
+          color: $white;
+          text-decoration: none;
+          margin: 0 10px;
+          &:hover {
+            color: $pri2;
+          }
+          @media (max-width: 540px) {
+            margin: 0 5px;
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
+  

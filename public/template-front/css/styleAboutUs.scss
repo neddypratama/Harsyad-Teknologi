@@ -1,0 +1,131 @@
+@import "site-base";
+@import "site-navbar";
+@import "site-element";
+@import "site-footer";
+
+.hero-section {
+  color: $white1;
+  position: relative;
+  padding: 20px;
+  z-index: 1;
+  h2 {
+    font-size: 36px;
+    margin: 40px;
+  }
+  p {
+    margin: 40px;
+    font-size: 20px;
+  }
+  .icon-text-inline {
+    .primary-btn {
+      margin: 20px;
+      &:hover {
+        background-color: #333;
+      }
+    }
+  }
+}
+.visi-misi {
+  background: linear-gradient(to bottom, $primary, $white2);
+  .card {
+    background-color: $white1;
+    color: $secondary;
+    text-align: center;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    padding: 20px;
+    position: relative;
+    .card-title {
+      font-weight: bold;
+      font-size: 20px;
+    }
+  }
+}
+
+.values {
+  background-color: $white2;
+  height: 100vh;
+  padding: 20px;
+  h2 {
+    color: $primary;
+    text-decoration: underline;
+    font-weight: bold;
+    text-align: center;
+  }
+  .row {
+    align-items: flex-end;
+    .list-unstyled {
+      color: $secondary;
+    }
+  }
+}
+
+// Team
+.team {
+  background-color: $secondary;
+  .team-header {
+    color: $white;
+    padding: 50px 30px;
+    text-align: center;
+    h2 {
+      font-weight: bold;
+    }
+  }
+  .team-content {
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    white-space: nowrap;
+    padding: 50px 0;
+    .team-container {
+      margin: 10px;
+      .row-team {
+        flex-wrap: nowrap;
+        .card {
+          border-radius: 150px 150px 50px 50px;
+          box-shadow: 0 4px 8px $shadow;
+          background-color: $pri2;
+          margin: 5px;
+          h3 {
+            font-size: 16px;
+            font-weight: bold;
+            color: $white;
+          }
+        }
+      }
+    }
+    &::-webkit-scrollbar {
+      height: 12px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: var(--white2); /* Custom color for scrollbar */
+      border-radius: 10px;
+    }
+  }
+}
+// Career
+.career {
+  position: relative;
+  background-image: url("../career.png");
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  align-content: center;
+  @media (max-width: 768px) {
+    height: 50%;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 34, 77, 0.75); /* Biru tua dengan transparansi */
+    z-index: 1;
+  }
+  .content {
+    position: relative;
+    z-index: 2; /* Konten di atas overlay */
+    color: $white;
+  }
+}

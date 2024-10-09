@@ -1,0 +1,303 @@
+// Hero Section
+.hero-section {
+  color: $white1;
+  position: relative;
+  padding: 20px;
+  z-index: 1;
+  .hero-content {
+    max-width: 100%;
+    padding: 0 15px; // Padding standar Bootstrap untuk konten
+
+    h2 {
+      font-size: 2.4rem;
+      margin-bottom: 30px;
+    }
+    @media (max-width: 990px) {
+      text-align: center;
+    }
+    .primary-btn {
+      margin-bottom: 20px;
+      &:hover {
+        background-color: #333;
+      }
+    }
+  }
+
+  // Hero Image
+  .hero-image {
+    .image {
+      border-radius: 50px 50px 150px 150px;
+      box-shadow: 0 4px 15px $shadow;
+      background-color: $pri2;
+    }
+  }
+}
+
+// Card Section
+.container-card {
+  background: linear-gradient(
+    to bottom,
+    $primary,
+    $white2
+  ); /* Gradasi vertikal dari atas ke bawah */
+  padding: 20px;
+  .card {
+    background-color: $white1;
+    text-align: center;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    padding: 10px;
+    position: relative;
+    .card-header {
+      background-color: $white1;
+      border: none;
+    }
+    .card-body {
+      text-align: left;
+      font-size: 12px;
+    }
+    .card-footer {
+      background-color: $white1;
+      font-size: 14px;
+      border: none;
+      text-align: right;
+      &:hover {
+        color: $pri2;
+      }
+    }
+  }
+  .icon-and-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 15px;
+    top: 0;
+    padding: 0;
+    img {
+      max-width: 35px;
+      max-height: 35px;
+    }
+    h3 {
+      font-size: 16px;
+      color: $text-color;
+      margin: 0;
+      font-weight: bold;
+      text-align: left;
+    }
+  }
+}
+
+// Content Harsyad
+.content {
+  background-color: $white2;
+  padding: 50px auto;
+  img {
+    max-width: 90%;
+    margin-bottom: 50px;
+  }
+  .content-title {
+    color: $secondary;
+    font-size: 2em;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 50px;
+    u {
+      color: $primary;
+    }
+  }
+  .content-text {
+    h4 {
+      flex: 2;
+      font-size: 2em;
+      color: $secondary;
+      font-weight: bold;
+      line-height: 1.6;
+    }
+    p {
+      flex: 2; /* Konten teks akan mengambil lebih banyak ruang */
+      font-size: 16px;
+      color: $text-color;
+      line-height: 1.6;
+    }
+    @media (max-width: 990px) {
+      text-align: center;
+    }
+  }
+}
+
+// Portofolio
+.portofolio {
+  background-color: $secondary;
+  text-align: center;
+  padding: 50px;
+  .portofolio-title {
+    padding: 20px;
+    h2 {
+      color: $white;
+      font-weight: bold;
+      u {
+        color: $primary;
+      }
+    }
+    p {
+      color: $white2;
+    }
+  }
+  .portofolio-content {
+    .more {
+      margin: 0 50px;
+      span {
+        text-decoration: underline;
+        color: $white2;
+        margin-bottom: 10px;
+        text-align: right;
+        &:hover {
+          font-weight: bold;
+        }
+      }
+      img {
+        filter: invert(100%) brightness(80%);
+      }
+    }
+    .card {
+      border-radius: 20px;
+      border: none;
+    }
+    .hover-card {
+      position: relative;
+      overflow: hidden;
+
+      .card-img-top {
+        transition: transform 0.5s ease;
+
+        &:hover {
+          transform: scale(1.1); // Membesarkan gambar saat hover
+        }
+      }
+
+      .card-img-overlay {
+        background: rgba(0, 34, 77, 0.5); /* Overlay gelap */
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        justify-content: end;
+        border: none;
+
+        &:hover {
+          opacity: 1; // Overlay muncul saat hover
+        }
+
+        .category {
+          text-decoration: none;
+          color: $white;
+          line-height: 1.6;
+          text-align: left;
+          font-weight: bold;
+          b {
+            font-size: 20px;
+          }
+        }
+      }
+
+      &:hover .card-img-overlay {
+        opacity: 1; // Overlay muncul saat hover
+      }
+    }
+  }
+}
+
+// Rating
+.rating {
+  background-color: $white2;
+  padding: 50px 0;
+  .rating-header {
+    text-align: center;
+    h2 {
+      color: $secondary;
+      font-size: 1.9em;
+      margin-top: 40px;
+      font-weight: bold;
+      b {
+        color: $primary;
+      }
+    }
+    p {
+      color: $secondary;
+      text-decoration: none;
+      font-size: 19px;
+      margin: 0 40px;
+      line-height: 1.5;
+    }
+  }
+  .rating-content {
+    .next-previous {
+      img {
+        width: 32px;
+        height: 32px;
+        margin: 0 5px;
+      }
+    }
+    .rating-slide {
+      .card {
+        box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 20px;
+        margin: 5px;
+      }
+      .rating-star {
+        img {
+          width: 21px;
+          height: 21px;
+        }
+      }
+      .rating-text {
+        font-size: 14px;
+        color: #555; /* Warna teks ulasan */
+        line-height: 1.5;
+        text-align: left;
+      }
+    }
+  }
+}
+
+// Team
+.team {
+  background-color: $secondary;
+  .team-header {
+    color: $white;
+    padding: 50px 30px;
+    text-align: center;
+    h2 {
+      font-weight: bold;
+    }
+  }
+  .team-content {
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    white-space: nowrap;
+    padding: 50px 0;
+    .team-container {
+      margin: 10px;
+      .row-team {
+        flex-wrap: nowrap;
+        .card {
+          border-radius: 150px 150px 50px 50px;
+          box-shadow: 0 4px 8px $shadow;
+          background-color: $pri2;
+          margin: 5px;
+          h3 {
+            font-size: 16px;
+            font-weight: bold;
+            color: $white;
+          }
+        }
+      }
+    }
+    &::-webkit-scrollbar {
+      height: 12px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: var(--white2); /* Custom color for scrollbar */
+      border-radius: 10px;
+    }
+  }
+}
