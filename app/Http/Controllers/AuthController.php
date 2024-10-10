@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Feedback;
+use App\Models\Form;
+use App\Models\Project;
+use App\Models\Service;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -68,5 +72,15 @@ class AuthController extends Controller
         $request->session()->regenerateToken();
 
         return redirect()->route('login');
+    }
+
+    public function dashboard() {
+        $feedback = Feedback::all();
+        $form = Form::all();
+        $service = Service::all();
+        $project = Project::all();
+        $user = User::all();
+
+        return view('admin.dashboard' , compact('feedback', 'service', 'form', 'project', 'user'));
     }
 }

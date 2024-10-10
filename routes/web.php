@@ -28,8 +28,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () { return view('welcome');})->name('welcome');
-Route::get('/dashboard', function () { return view('admin.dashboard');})->middleware('auth')->name('dashboard');
+Route::get('/welcome', function () { return view('welcome');})->name('welcome');
+Route::get('/dashboard', [AuthController::class, 'dashboard'])->middleware('auth')->name('dashboard');
 
 Route::get('/login', [AuthController::class, 'showLoginForm'])->middleware('guest')->name('login');
 Route::get('/register', [AuthController::class, 'showRegisterForm'])->middleware('guest')->name('register');
@@ -54,7 +54,7 @@ Route::middleware(['auth'])->group(function() {
     Route::put('profile-password/{id}', [ProfileController::class, 'updatePassword'])->name('profile.password');
 });
 
-Route::get('/landing-page', [FrontController::class, 'showLandingPage'])->name('landingpage');
+Route::get('/', [FrontController::class, 'showLandingPage'])->name('landingpage');
 Route::get('/about-us-page', [FrontController::class, 'showAboutUsPage'])->name('aboutuspage');
 Route::get('/service-page/{id}', [FrontController::class, 'showServicePage'])->name('servicepage');
 Route::get('/portofolio-page', [FrontController::class, 'showPortofolioPage'])->name('portofoliopage');
