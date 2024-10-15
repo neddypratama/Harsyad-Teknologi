@@ -32,7 +32,7 @@ Route::get('/welcome', function () { return view('welcome');})->name('welcome');
 Route::get('/dashboard', [AuthController::class, 'dashboard'])->middleware('auth')->name('dashboard');
 
 Route::get('/login', [AuthController::class, 'showLoginForm'])->middleware('guest')->name('login');
-Route::get('/register', [AuthController::class, 'showRegisterForm'])->middleware('guest')->name('register');
+Route::get('/register', [AuthController::class, 'showRegisterForm'])->middleware('auth')->name('register');
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/register', [AuthController::class, 'register']);
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\GaleryProject;
 use App\Models\Project;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProjectController extends Controller
 {
@@ -81,14 +83,33 @@ class ProjectController extends Controller
 
     public function destroy(String $id)
     {
-        $check = Project::findOrFail($id);
-        if(!$check){
+        $project = Project::findOrFail($id); // Cari project berdasarkan ID
+
+        if(!$project){
             return redirect()->route('project.index')->withError(__('Project cannot finded.'));
         }
-        try{
-                Project::destroy($id);
-                return redirect()->route('project.index')->withStatus(__('Project successfully deleted.'));
-        }catch(\Illuminate\Database\QueryException $e){
+        try {
+            // Hapus semua galeri yang terkait dengan project
+            $galeries = GaleryProject::where('project_id', $id)->get();
+            // dd($galeries);
+
+            if ($galeries && $galeries->count() > 0) {
+                foreach ($galeries as $galery) {
+                    // Check if the file exists in the storage
+                    if (Storage::disk('public')->exists($galery->galery_name)) {
+                        // Delete the file from storage
+                        Storage::disk('public')->delete($galery->galery_name);
+                    }
+                    // Hapus data galeri dari database
+                    $galery->delete();
+                }
+            }
+
+            // Hapus project setelah semua galeri dihapus
+            $project->delete();
+
+            return redirect()->route('project.index')->withStatus(__('Project and galeries successfully deleted.'));
+        } catch (\Illuminate\Database\QueryException $e) {
             return redirect()->route('project.index')->withError(__('Project data failed to be deleted because there is another table associated with this data.'));
         }
     }

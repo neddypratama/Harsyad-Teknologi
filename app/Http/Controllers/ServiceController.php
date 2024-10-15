@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Layanan;
 use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -182,6 +183,14 @@ class ServiceController extends Controller
             return redirect()->route('service.index')->withError(__('Service cannot finded.'));
         }
         try{
+            $layanan = Layanan::where('service_id', $id)->get();
+
+            if ($layanan && $layanan->count() > 0) {
+                foreach ($layanan as $l) {
+                    // Hapus data layanan dari database
+                    $l->delete();
+                }
+            }
             // Check if the file exists in the storage
             if (Storage::disk('public')->exists($check->service_icon) || Storage::disk('public')->exists($check->service_image)) {
                 // Delete the file

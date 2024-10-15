@@ -73,7 +73,7 @@
 
         .image-header {
             /* width: 100vw;
-                                                                                                                                height: 100vh; */
+                                                                                                                                    height: 100vh; */
             background-color: #c3c3c3;
             background-image: linear-gradient(to right, #FF204E, #FF204E);
             background-size: 100% 50%;
@@ -424,6 +424,25 @@
             border-radius: 10px;
         }
 
+        .team .team-content .team-container .row-team .card .team-image {
+            width: 100%;
+            height: 100%;
+            /* Atur tinggi tetap */
+            overflow: hidden;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .team .team-content .team-container .row-team .card .team-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Gambar akan dipotong untuk memenuhi ukuran */
+            border-radius: 150px 150px 0 0;
+            /* Sesuaikan dengan bentuk card */
+        }
+
+
         /* Responsif untuk layar lebih kecil */
         @media (max-width: 768px) {
             .team .team-content .team-container .row-team .card h3 {
@@ -532,19 +551,19 @@
                     <div class="card d-flex flex-column justify-content-center"
                         style="color: #00224D; background-color: #E5E5E5;">
                         <div class="card-body">
+                            <div class="card-title fw-bolder fs-5">Visi</div>
                             @foreach ($visimisi as $d)
                                 @if ($d->visimisi_type === 'Visi')
-                                    <div class="card-title fw-bolder fs-5">{{ $d->visimisi_type }}</div>
-                                    <div class="card-text">{{ $d->visimisi_description }}</div>
+                                    <div class="card-text mb-3">{{ $d->visimisi_description }}</div>
                                 @endif
                             @endforeach
                         </div>
-                        <hr style="border: none; height: 2px; background-color: #000; margin: 15px auto; width: 50%;">
+                        <hr style="border: none; height: 2px; background-color: #000; margin: 10px auto; width: 50%;">
                         <div class="card-body">
+                            <div class="card-title fw-bolder fs-5">Misi</div>
                             @foreach ($visimisi as $d)
                                 @if ($d->visimisi_type === 'Misi')
-                                    <div class="card-title fw-bolder fs-5">{{ $d->visimisi_type }}</div>
-                                    <div class="card-text">{{ $d->visimisi_description }}</div>
+                                    <div class="card-text mb-3">{{ $d->visimisi_description }}</div>
                                 @endif
                             @endforeach
                         </div>
@@ -596,11 +615,11 @@
                                 <div class="col-6 col-lg-3 col-md-4">
                                     <div class="card team-card h-100">
                                         <div class="team-image">
-                                            <img src="{{ asset('storage/' . $d->team_image) }}" alt="{{$d->role}}"
+                                            <img src="{{ asset('storage/' . $d->team_image) }}" alt="{{ $d->role }}"
                                                 class="card-img-top img-fluid" />
                                         </div>
                                         <div class="card-body text-center">
-                                            <h3>{{$d->role}}</h3>
+                                            <h3>{{ $d->role }}</h3>
                                         </div>
                                     </div>
                                 </div>
@@ -616,8 +635,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8 text-start mx-auto">
-                    <div
-                        class="d-flex flex-column justify-content-center align-items-center mb-2 mt-4 text-center content">
+                    <div class="d-flex flex-column justify-content-center align-items-center mb-2 mt-4 text-center content">
                         <h2 class="text-white">Bergabunglah dengan Tim Kami</h2>
                         <p class="text-center">
                             Kami sedang mencari talenta baru yang siap berinovasi dan berkembang bersama kami. Jika Anda

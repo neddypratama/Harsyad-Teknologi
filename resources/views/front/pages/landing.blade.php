@@ -73,7 +73,7 @@
 
         .image-header {
             /* width: 100vw;
-                                        height: 100vh; */
+                                                            height: 100vh; */
             background-color: #c3c3c3;
             background-image: linear-gradient(to right, #FF204E, #FF204E);
             background-size: 100% 50%;
@@ -381,6 +381,26 @@
                 font-size: 12px;
             }
         }
+
+        .btn {
+            transition: background-color 0.3s;
+        }
+
+        .btn.disabled {
+            background-color: #d3d3d3;
+            /* Warna abu-abu */
+            color: #fff;
+            /* Warna teks putih */
+            cursor: not-allowed;
+            /* Menampilkan kursor tidak diizinkan */
+        }
+
+        .btn.active {
+            background-color: #FF204E;
+            /* Warna merah */
+            color: #fff;
+            /* Warna teks putih */
+        }
     </style>
 @endpush
 
@@ -454,15 +474,13 @@
                     <img src="{{ asset('template-front/team.png') }}" alt="team" class="img-fluid image" />
                 </div>
                 <!-- Teks di kolom kiri pada layar besar, di atas pada layar kecil -->
-                <div class="col-lg-8 col-12 order-lg-1 mt-3">
+                <div class="col-lg-6 col-12 order-lg-1 mt-3">
                     <h3 class="px-lg-5 px-3" style="color: #00224D;">Who we are?</h3>
                     <p class="px-lg-5 px-3 w-100" style="color: black;">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Pellentesque suscipit est lorem, ultricies accumsan lacus pulvinar non.
-                        In tincidunt quis ante sed varius. Ut id ex a leo sollicitudin rhoncus.<br /><br />
-                        Quisque congue diam feugiat massa vehicula hendrerit. Mauris egestas in eros ac venenatis.
-                        Sed nec augue eu mauris suscipit gravida eu ac tortor. In pulvinar, lorem id condimentum viverra,
-                        justo nulla venenatis purus, id luctus nunc justo eu lacus.
+                        Harsyad Teknologi bukan hanya penyedia layanan teknologi, tetapi mitra Anda dalam menghadapi
+                        tantangan digital. Kami menghadirkan solusi perangkat lunak berkualitas tinggi yang dirancang untuk
+                        memenuhi kebutuhan unik bisnis Anda, memastikan pertumbuhan yang berkelanjutan. Bersama kami, mari
+                        wujudkan masa depan digital yang lebih cerdas dan efisien.
                     </p>
                 </div>
             </div>
@@ -483,26 +501,28 @@
                 </div>
                 <div class="col-lg-10 mt-3 mb-5">
                     <div class="d-flex justify-content-end">
-                        <a href="#" class="card-footer d-flex align-items-center">
+                        <a href="{{ route('portofoliopage') }}" class="card-footer d-flex align-items-center">
                             <span style="font-size: 14px">Selengkapnya</span><i
                                 class="ms-2 fas fa-chevron-circle-right"></i>
                         </a>
                     </div>
                     <div class="row justify-content-center">
-                        @foreach ($project as $p)
+                        @foreach ($project->take(3) as $p)
                             @foreach ($galery as $g)
                                 @if ($p->project_id === $g->project_id)
                                     <div class="btn col-12 col-md-6 col-lg-4 d-flex justify-content-center mb-3">
-                                        <div class="image-container">
-                                            <img class="img-fluid" src="{{ asset('storage/' . $g->galery_name) }}"
-                                                alt="Gambar 1" style="width: 600px; height: 200px; border-radius: 15px">
-                                            <div class="overlay">
-                                                <div class="d-flex flex-column text-start text-capitalize">
-                                                    <span>{{ $p->project_type }}</span>
-                                                    <span class="fs-6">{{ $p->project_name }}</span>
+                                        <a href="{{ url('/portofolio-detail-page/' . $p->project_id) }}">
+                                            <div class="image-container">
+                                                <img class="img-fluid" src="{{ asset('storage/' . $g->galery_name) }}"
+                                                    alt="Gambar 1" style="width: 600px; height: 200px; border-radius: 15px">
+                                                <div class="overlay">
+                                                    <div class="d-flex flex-column text-start text-capitalize">
+                                                        <span>{{ $p->project_type }}</span>
+                                                        <span class="fs-6">{{ $p->project_name }}</span>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </a>
                                     </div>
                                 @break
                             @endif
@@ -533,13 +553,14 @@
     <div class="container">
         <div class="d-flex align-items-end flex-column bd-highlight mb-3" style="height: 20px;">
             <div class="d-flex justify-content-evenly w-10" style="color:#FF204E">
-                <button id="prevFeedback" class="btn me-3" disabled><i class="fa-lg far fa-arrow-alt-circle-left"></i></button>
-                <button id="nextFeedback" class="btn "><i class="fa-lg far fa-arrow-alt-circle-right"></i></button>
+                <button id="prevFeedback" class="btn" disabled><i
+                        class="fa-lg far fa-arrow-alt-circle-left"></i></button>
+                <button id="nextFeedback" class="btn"><i class="fa-lg far fa-arrow-alt-circle-right"></i></button>
             </div>
         </div>
     </div>
-    <!-- Card Service -->
-    <<div class="container" style="color: black">
+
+    <div class="container" style="color: black">
         <div class="row d-flex justify-content-center" id="feedbackContainer">
             @foreach ($feedback as $index => $d)
                 <div class="col-md-4 col-sm-6 mb-4 feedback-item" style="display: none;">
@@ -548,17 +569,14 @@
                             <div class="d-flex flex-column">
                                 <div>
                                     @for ($i = 0; $i < floor($d->rate); $i++)
-                                        <!-- Bintang Penuh -->
                                         <i class="fas fa-star" style="color: #ffa620;"></i>
                                     @endfor
 
                                     @if ($d->rate - floor($d->rate) >= 0.5)
-                                        <!-- Bintang Setengah -->
                                         <i class="fas fa-star-half-alt" style="color: #ffa620;"></i>
                                     @endif
 
                                     @for ($i = ceil($d->rate); $i < 5; $i++)
-                                        <!-- Bintang Kosong -->
                                         <i class="far fa-star" style="color: #ffa620;"></i>
                                     @endfor
                                 </div>
@@ -574,6 +592,7 @@
                 </div>
             @endforeach
         </div>
+    </div>div>
 </div>
 </div>
 @endsection
@@ -585,25 +604,41 @@
     const feedbackItems = document.querySelectorAll('.feedback-item');
     const totalFeedbacks = feedbackItems.length;
 
-    // Function to show feedback items in range
     function showFeedbackItems(startIndex) {
-        // Hide all feedback items
         feedbackItems.forEach(item => item.style.display = 'none');
 
-        // Show feedback items for the current page
         for (let i = startIndex; i < startIndex + feedbackPerPage && i < totalFeedbacks; i++) {
             feedbackItems[i].style.display = 'block';
         }
 
         // Update the state of navigation buttons
-        document.getElementById('prevFeedback').disabled = startIndex === 0;
-        document.getElementById('nextFeedback').disabled = startIndex + feedbackPerPage >= totalFeedbacks;
+        const prevButton = document.getElementById('prevFeedback');
+        const nextButton = document.getElementById('nextFeedback');
+
+        prevButton.disabled = startIndex === 0;
+        nextButton.disabled = startIndex + feedbackPerPage >= totalFeedbacks;
+
+        // Update button styles based on their state
+        if (prevButton.disabled) {
+            prevButton.classList.add('disabled');
+            prevButton.classList.remove('active');
+        } else {
+            prevButton.classList.add('active');
+            prevButton.classList.remove('disabled');
+        }
+
+        if (nextButton.disabled) {
+            nextButton.classList.add('disabled');
+            nextButton.classList.remove('active');
+        } else {
+            nextButton.classList.add('active');
+            nextButton.classList.remove('disabled');
+        }
     }
 
     // Initial display of the first 5 feedbacks
     showFeedbackItems(currentStartIndex);
 
-    // Event listener for the "Next" button
     document.getElementById('nextFeedback').addEventListener('click', function() {
         if (currentStartIndex + feedbackPerPage < totalFeedbacks) {
             currentStartIndex += feedbackPerPage;
@@ -611,7 +646,6 @@
         }
     });
 
-    // Event listener for the "Prev" button
     document.getElementById('prevFeedback').addEventListener('click', function() {
         if (currentStartIndex > 0) {
             currentStartIndex -= feedbackPerPage;

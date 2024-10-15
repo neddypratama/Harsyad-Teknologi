@@ -61,12 +61,6 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link me-4" href="{{ route('register') }}">
-              <i class="fas fa-user-circle opacity-6  me-1"></i>
-              Sign Up
-            </a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link " href="{{ route('login') }}">
               <i class="fas fa-key opacity-6  me-1"></i>
               Sign In
