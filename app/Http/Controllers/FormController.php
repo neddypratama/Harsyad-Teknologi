@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\HelloMail;
 use App\Models\Form;
+use App\Notifications\ConsultationOrder;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Notification;
 
 class FormController extends Controller
 {
@@ -71,7 +75,7 @@ class FormController extends Controller
             'form_description'  => 'required'
         ]);
 
-        form::create([
+        $form = Form::create([
             'form_name'   => $request->form_name,
             'email' => $request->email,
             'no_telp' => $request->no_telp,
@@ -79,7 +83,9 @@ class FormController extends Controller
             'created_at'     => now(),
             'updated_at'     => now(),
         ]);
-        
+
+        Mail::to('neddypratama92@gmail.com')->send(new HelloMail($request->all()));
+
         return redirect()->route('form.index')->withStatus('Form successfully added.');
     }
 
