@@ -73,7 +73,7 @@
 
         .image-header {
             /* width: 100vw;
-                                                            height: 100vh; */
+                                                                height: 100vh; */
             background-color: #c3c3c3;
             background-image: linear-gradient(to right, #FF204E, #FF204E);
             background-size: 100% 50%;
@@ -418,7 +418,7 @@
                     <h2>
                         <b class="text-white">Mitra Teknologi Terpercaya Anda untuk Masa Depan Digital</b>
                     </h2>
-                    <a href="#contact" class="btn" style="background-color: #00224D">
+                    <a  href="#form-consultation" class="btn" style="background-color: #00224D">
                         <span class="text-inline"><b class="text-white">Mulai Kolaborasi Sekarang</b></span>
                         <i class="fas fa-sign-out-alt fa-lg ms-2" style="color: #ffffff;"></i>
                     </a>
@@ -450,7 +450,8 @@
                                 </div>
                                 <p class="card-text mt-2 mb-0 fw-bold" style="font-size: 12px">{{ $d->service_short }}</p>
                             </div>
-                            <a href="#" class="card-footer d-flex align-items-center">
+                            <a href="{{ url('/service-page/' . $d->service_id) }}"
+                                class="card-footer d-flex align-items-center">
                                 <span style="font-size: 10px">Selengkapnya</span><i
                                     class="ms-2 fas fa-chevron-circle-right"></i>
 
@@ -466,7 +467,7 @@
         <div class="container">
             <h2 class="text-center">
                 Membangun Masa Depan Digital Bersama <br />
-                <u class="" style="color: #FF204E;">Harsyad Teknologi</u>
+                <b class="" style="color: #FF204E;">Harsyad Teknologi</b>
             </h2>
             <div class="row d-flex align-items-center justify-content-center">
                 <!-- Gambar di kolom kanan pada layar besar, di bawah pada layar kecil -->
@@ -475,7 +476,7 @@
                 </div>
                 <!-- Teks di kolom kiri pada layar besar, di atas pada layar kecil -->
                 <div class="col-lg-6 col-12 order-lg-1 mt-3">
-                    <h3 class="px-lg-5 px-3" style="color: #00224D;">Who we are?</h3>
+                    <h3 class="px-lg-5 px-3" style="color: #00224D;">Siapa kita?</h3>
                     <p class="px-lg-5 px-3 w-100" style="color: black;">
                         Harsyad Teknologi bukan hanya penyedia layanan teknologi, tetapi mitra Anda dalam menghadapi
                         tantangan digital. Kami menghadirkan solusi perangkat lunak berkualitas tinggi yang dirancang untuk
@@ -493,8 +494,8 @@
             <div class="row justify-content-center">
                 <div class="col-lg-12 text-center mx-auto">
                     <div class="d-flex mb-1 mt-4 justify-content-center">
-                        <h3 class="fw-bold me-2" style="color:#E5E5E5">Karya Terbaik <u style="color:#FF204E">Harsyad
-                                Teknologi</u></h3>
+                        <h3 class="fw-bold me-2" style="color:#E5E5E5">Karya Terbaik <b style="color:#FF204E">Harsyad
+                                Teknologi</b></h3>
                     </div>
                     <h6 style="color: #E5E5E5" class="mt-0">Proyek yang menunjukkan dedikasi kami pada inovasi dan
                         kualitas.</h6>
@@ -540,9 +541,9 @@
         <div class="row">
             <div class="col-lg-7 text-center mx-auto">
                 <div class="d-flex mb-1 mt-4 justify-content-center">
-                    <h3 class="fw-bold me-2 fs-3" style="color:#00224D">Membangun Klien <u
+                    <h3 class="fw-bold me-2 fs-3" style="color:#00224D">Membangun Klien <b
                             style="color: #FF204E">Bersama
-                            Kami</u></h3>
+                            Kami</b></h3>
                 </div>
                 <p style="color:#00224D" class="mt-0 fs-6">Keberhasilan kami diukur dari <b>kepuasan klien kami.</b>
                     Inilah

@@ -62,7 +62,7 @@
                             <ul class="navbar-nav ms-xl-auto">
                                 <li class="nav-item">
                                     <a class="nav-link d-flex align-items-center me-2 active" aria-current="page"
-                                        href="{{ route('welcome') }}">
+                                        href="{{ route('dashboard') }}">
                                         <i class="fa fa-chart-pie opacity-6 text-dark me-1"></i>
                                         Dashboard
                                     </a>
@@ -163,19 +163,16 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mb-4 mx-auto text-center">
-                    <a href="javascript:;" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
+                    <a href="{{ route('landingpage') }}" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
                         Home
                     </a>
-                    <a href="javascript:;" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
-                        Career
+                    <a href="{{ url('/service-page/1') }}" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
+                        Service
                     </a>
-                    <a href="javascript:;" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
+                    <a href="{{ route('aboutuspage') }}" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
                         About Us
                     </a>
-                    <a href="javascript:;" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
-                        Contact Us
-                    </a>
-                    <a href="javascript:;" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
+                    <a href="{{ route('portofoliopage') }}" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
                         Portofolio
                     </a>
                 </div>

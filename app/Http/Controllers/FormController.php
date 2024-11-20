@@ -6,6 +6,7 @@ use App\Mail\HelloMail;
 use App\Models\Form;
 use App\Notifications\ConsultationOrder;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Notification;
 
@@ -70,24 +71,65 @@ class FormController extends Controller
         // Validate the incoming request
         $request->validate([
             'form_name'    => 'required|string|max:255',
-            'email'    => 'required|email',
-            'no_telp'    => 'required|string|regex:/^[0-9]{12,13}$/|min:12',
-            'form_description'  => 'required'
+            'email'        => 'required|email',
+            'no_telp'      => 'required|string|regex:/^[0-9]{12,13}$/|min:12',
+            'form_description'  => 'required',
         ]);
 
+        // Create the form entry in the database
         $form = Form::create([
-            'form_name'   => $request->form_name,
-            'email' => $request->email,
-            'no_telp' => $request->no_telp,
+            'form_name'        => $request->form_name,
+            'email'            => $request->email,
+            'no_telp'          => $request->no_telp,
             'form_description' => $request->form_description,
-            'created_at'     => now(),
-            'updated_at'     => now(),
+            'created_at'       => now(),
+            'updated_at'       => now(),
         ]);
 
-        Mail::to('neddypratama92@gmail.com')->send(new HelloMail($request->all()));
+        // Send email directly
+        try {
+            Mail::to('neddypratama92@gmail.com')->send(new HelloMail($request->all()));
+        } catch (\Exception $e) {
+            return redirect()->route('form.index')->withError('Email failed to send, but the form has been saved.');
+        }
 
+        // Return with success message
         return redirect()->route('form.index')->withStatus('Form successfully added.');
     }
+
+    public function storeConsultation(Request $request)
+    {
+        // Validate the incoming request
+        $request->validate([
+            'form_name'        => 'required|string|max:255',
+            'email'            => 'required|email',
+            'no_telp'          => 'required|string|regex:/^[0-9]{12,13}$/|min:12',
+            'form_description' => 'required',
+            'url'              => 'required'
+        ]);
+
+        // Create the form entry in the database
+        $form = Form::create([
+            'form_name'        => $request->form_name,
+            'email'            => $request->email,
+            'no_telp'          => $request->no_telp,
+            'form_description' => $request->form_description,
+            'created_at'       => now(),
+            'updated_at'       => now(),
+        ]);
+
+        // Attempt to send email
+        try {
+            Mail::to('neddypratama92@gmail.com')->send(new HelloMail($request->all()));
+        } catch (\Exception $e) {
+            // Redirect to the URL with error message if email fails
+            return redirect()->to($request->url . '#form-consultation')->withError('Email failed to send, but the form has been saved.');
+        }
+
+        // Redirect to the URL with success message
+        return redirect()->to($request->url . '#form-consultation')->withStatus('Form successfully added.');
+    }
+
 
 
     public function destroy(String $id)

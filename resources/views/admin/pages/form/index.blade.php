@@ -16,11 +16,11 @@
                 @include('admin.alerts.error')
                 <div class="card mb-4">
                     <div class="card-header d-flex justify-content-between pb-0">
-                        <h6>Form Table</h6>
+                        <h6>Consultation Table</h6>
                         <!-- Button trigger modal -->
                         <button type="button" class="btn bg-gradient-primary btn-block mb-3" data-bs-toggle="modal"
                             data-bs-target="#addForm">
-                            Add Form
+                            Add Consultation
                         </button>
                     </div>
                     <!-- Form Pencarian -->

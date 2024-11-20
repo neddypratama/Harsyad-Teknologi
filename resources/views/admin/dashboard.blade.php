@@ -12,7 +12,7 @@
                     <div class="row">
                         <div class="col-8">
                             <div class="numbers">
-                                <p class="text-sm mb-0 text-capitalize font-weight-bold">Count Forms</p>
+                                <p class="text-sm mb-0 text-capitalize font-weight-bold">Count Consultations</p>
                                 <h5 class="font-weight-bolder mb-0">
                                     {{ count($form) }}
                                 </h5>
@@ -75,7 +75,7 @@
                     <div class="row">
                         <div class="col-8">
                             <div class="numbers">
-                                <p class="text-sm mb-0 text-capitalize font-weight-bold">Projects</p>
+                                <p class="text-sm mb-0 text-capitalize font-weight-bold">Count Projects</p>
                                 <h5 class="font-weight-bolder mb-0">
                                     {{ count($project) }}
                                 </h5>

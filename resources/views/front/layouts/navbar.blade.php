@@ -38,9 +38,11 @@
                     </a>
                 </li>
                 <li class="nav-item ">
-                    <div class="btn" style="background-color: #00224D">
-                        <a href="#form-consultation" class="text-white">Free Consultation</a>
-                    </div>
+                    <a href="#form-consultation">
+                        <div class="btn text-white" style="background-color: #00224D">
+                            Free Consultation
+                        </div>
+                    </a>
                 </li>
             </ul>
         </div>

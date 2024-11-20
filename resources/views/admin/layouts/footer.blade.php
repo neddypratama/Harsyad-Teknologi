@@ -14,19 +14,16 @@
         <div class="col-lg-6">
           <ul class="nav nav-footer justify-content-center justify-content-lg-end">
             <li class="nav-item">
-              <a href="" class="nav-link text-muted" target="_blank">Home</a>
+              <a href="{{ route('landingpage') }}" class="nav-link text-muted" target="_blank">Home</a>
             </li>
             <li class="nav-item">
-                <a href="" class="nav-link text-muted" target="_blank">Career</a>
+                <a href="{{ url('/service-page/1') }}" class="nav-link text-muted" target="_blank">Service</a>
               </li>
             <li class="nav-item">
-              <a href="" class="nav-link text-muted" target="_blank">About Us</a>
+              <a href="{{ route('aboutuspage') }}" class="nav-link text-muted" target="_blank">About Us</a>
             </li>
             <li class="nav-item">
-              <a href="" class="nav-link text-muted" target="_blank">Contact Us</a>
-            </li>
-            <li class="nav-item">
-              <a href="" class="nav-link pe-0 text-muted" target="_blank">Portofolio</a>
+              <a href="{{ route('portofoliopage') }}" class="nav-link pe-0 text-muted" target="_blank">Portofolio</a>
             </li>
           </ul>
         </div>

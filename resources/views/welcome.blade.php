@@ -88,36 +88,35 @@
     <!-- -------- START FOOTER 3 w/ COMPANY DESCRIPTION WITH LINKS & SOCIAL ICONS & COPYRIGHT ------- -->
     <footer class="footer py-5">
       <div class="container">
-        <div class="row">
-          <div class="col-lg-8 mb-4 mx-auto text-center">
-            <a href="javascript:;" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
-              Home
-            </a>
-            <a href="javascript:;" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
-              Career
-            </a>
-            <a href="javascript:;" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
-              About Us
-            </a>
-            <a href="javascript:;" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
-              Contact Us
-            </a>
-            <a href="javascript:;" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
-              Portofolio
-            </a>
+          <div class="row">
+              <div class="col-lg-8 mb-4 mx-auto text-center">
+                  <a href="{{ route('landingpage') }}" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
+                      Home
+                  </a>
+                  <a href="{{ url('/service-page/1') }}" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
+                      Service
+                  </a>
+                  <a href="{{ route('aboutuspage') }}" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
+                      About Us
+                  </a>
+                  <a href="{{ route('portofoliopage') }}" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
+                      Portofolio
+                  </a>
+              </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-8 mx-auto text-center mt-1">
-            <p class="mb-0 text-secondary">
-              Copyright © <script>
-                document.write(new Date().getFullYear())
-              </script> Harsyad Teknologi. <p class="font-italic text-secondary">All right reserved</p>
-            </p>
+          <div class="row">
+              <div class="col-8 mx-auto text-center mt-1">
+                  <p class="mb-0 text-secondary">
+                      Copyright ©
+                      <script>
+                          document.write(new Date().getFullYear())
+                      </script> Harsyad Teknologi.
+                  <p class="font-italic text-secondary">All right reserved</p>
+                  </p>
+              </div>
           </div>
-        </div>
       </div>
-    </footer>
+  </footer>
     <!-- -------- END FOOTER 3 w/ COMPANY DESCRIPTION WITH LINKS & SOCIAL ICONS & COPYRIGHT ------- -->
   </main>
   <!--   Core JS Files   -->

@@ -61,5 +61,13 @@ Route::get('/about-us-page', [FrontController::class, 'showAboutUsPage'])->name(
 Route::get('/service-page/{id}', [FrontController::class, 'showServicePage'])->name('servicepage');
 Route::get('/portofolio-page', [FrontController::class, 'showPortofolioPage'])->name('portofoliopage');
 Route::get('/portofolio-detail-page/{id}', [FrontController::class, 'showPortofolioDetail'])->name('portofoliodetailpage');
-
 Route::post('/add-form', [FrontController::class, 'store'])->name('add-form');
+Route::post('store-consultation', [FormController::class, 'storeConsultation'])->name("store-consul");
+
+Route::get('/test-email', function () {
+    Mail::raw('You have new consultation!', function ($message) {
+        $message->to('neddypratama92@gmail.com')
+                ->subject('Test Email');
+    });
+    return 'Email sent!';
+})->name("send-email");

@@ -29,13 +29,15 @@
     <link href="{{ asset('template/assets/css/nucleo-icons.css') }}" rel="stylesheet" />
     <link href="{{ asset('template/assets/css/nucleo-svg.css') }}" rel="stylesheet" />
     <!-- Font Awesome Icons -->
-    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    {{-- <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script> --}}
+    <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
     <link href="{{ asset('template/assets/css/nucleo-svg.css') }}" rel="stylesheet" />
     <!-- CSS Files -->
     <link id="pagestyle" href="{{ asset('template/assets/css/soft-ui-dashboard.css?v=1.0.7') }}" rel="stylesheet" />
     <!-- Nepcha Analytics (nepcha.com) -->
     <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
-    <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
     @stack('styles')
 </head>
 
@@ -82,6 +84,12 @@
 
 @stack('js')
 <script>
+    // Ambil URL terakhir yang dikunjungi (halaman sebelumnya)
+    var lastVisitedUrl = window.location.href
+
+    // Masukkan URL tersebut ke dalam input field dengan id 'last_visited_url'
+    document.getElementById('last_visited_url').value = lastVisitedUrl;
+
     function toggleContent(id, id_bg) {
         const content = document.getElementById(id);
         const background = document.getElementById(id_bg);

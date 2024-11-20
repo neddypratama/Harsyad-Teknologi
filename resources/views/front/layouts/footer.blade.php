@@ -13,10 +13,10 @@
             <div class="col-4 col-lg-2 mt-2 footer-center">
                 <h3 class="text-white fs-4">Menu</h3>
                 <ul class="list-unstyled">
-                    <li><a class="text-white mt-3" href="#">Home</a></li>
-                    <li><a class="text-white mt-3" href="#">About Us</a></li>
-                    <li><a class="text-white mt-3" href="#">Contact Us</a></li>
-                    <li><a class="text-white mt-3" href="#">Portofolio</a></li>
+                    <li><a class="text-white me-3" href="{{ route('landingpage') }}">Home</a></li>
+                    <li><a class="text-white me-3" href="{{ url('/service-page/1') }}">Service</a></li>
+                    <li><a class="text-white me-3" href="{{ route('aboutuspage') }}">About Us</a></li>
+                    <li><a class="text-white me-3" href="{{ route('portofoliopage') }}">Portofolio</a></li>
                 </ul>
             </div>
 
@@ -42,11 +42,10 @@
             </div>
             <div class="col-12 col-lg-6">
                 <nav class="footer-nav d-flex justify-content-around">
-                    <a class="text-white me-3" href="#">Home</a>
-                    <a class="text-white me-3" href="#">Career</a>
-                    <a class="text-white me-3" href="#">About Us</a>
-                    <a class="text-white me-3" href="#">Contact Us</a>
-                    <a class="text-white me-3" href="#">Portofolio</a>
+                    <a class="text-white me-3" href="{{ route('landingpage') }}">Home</a>
+                    <a class="text-white me-3" href="{{ url('/service-page/1') }}">Service</a>
+                    <a class="text-white me-3" href="{{ route('aboutuspage') }}">About Us</a>
+                    <a class="text-white me-3" href="{{ route('portofoliopage') }}">Portofolio</a>
                 </nav>
             </div>
         </div>

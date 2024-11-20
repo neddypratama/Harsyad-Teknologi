@@ -20,17 +20,28 @@
                             </button>
                         </div>
                     @endif
-                    <form role="form" method="POST" action="{{ route('add-form') }}">
+                    @if (session($key ?? 'error'))
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <span class="alert-icon"><i class="ni ni-like-2"></i></span>
+                            <span class="alert-text"><strong>Danger!</strong> {{ session($key ?? 'error') }}</span>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    @endif
+                    <form role="form" method="POST" action="{{ route('store-consul') }}">
                         @csrf
                         <input type="text" name="form_name" class="form-control mb-3" placeholder="Nama Lengkap"
                             required />
-                        <input type="tel" name="no_telp" class="form-control mb-3" placeholder="Nomor Telepon"
-                            pattern="^(?:\+62|0)[0-9]{1,3}[- ]?[0-9]{1,4}[- ]?[0-9]{4,5}$" required />
+                        <input type="text" name="no_telp" class="form-control mb-3" placeholder="Nomor Telepon"
+                            pattern="[0-9]{12,13}" required />
                         <input type="email" name="email" class="form-control mb-3" placeholder="Email" required />
                         <textarea class="form-control mb-3" name="form_description" rows="5" placeholder="Jelaskan tujuan anda" required></textarea>
+                        <input type="text" id="last_visited_url" name="url" class="form-control mb-3" hidden required>
                         <button type="submit" class="btn text-white w-100"
                             style="background-color: #002244;">Kirim</button>
                     </form>
+                    
                 </div>
 
                 <!-- Bagian Teks dan Informasi Kontak -->
